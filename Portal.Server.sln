@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30709.132
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortalAdmin.HttpApi", "Src\PortalAdmin.Http\PortalAdmin.HttpApi.csproj", "{D385C0D1-5E00-480D-B282-03634C2518C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortalAdmin.Common", "PortalAdmin.Common\PortalAdmin.Common.csproj", "{5F2897B5-C0D5-4F9A-A8C0-E05592FC8FA1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D385C0D1-5E00-480D-B282-03634C2518C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D385C0D1-5E00-480D-B282-03634C2518C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D385C0D1-5E00-480D-B282-03634C2518C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D385C0D1-5E00-480D-B282-03634C2518C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F2897B5-C0D5-4F9A-A8C0-E05592FC8FA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F2897B5-C0D5-4F9A-A8C0-E05592FC8FA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F2897B5-C0D5-4F9A-A8C0-E05592FC8FA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F2897B5-C0D5-4F9A-A8C0-E05592FC8FA1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {092DAD05-5587-49F8-A54C-118E0AE05EDA}
+	EndGlobalSection
+EndGlobal
