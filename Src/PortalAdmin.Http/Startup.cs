@@ -1,15 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using PortalAdmin.Common.Configs;
+using PortalAdmin.HttpApi.Extensions;
 
 namespace PortalAdmin.HttpApi
 {
@@ -19,22 +14,40 @@ namespace PortalAdmin.HttpApi
 
         public IConfiguration Configuration { get; }
 
-        public Startup(IConfiguration configuration,IWebHostEnvironment env)
+        private readonly string _allowSpecificOrigins = "_allowSpecificOrigins";
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
             Env = env;
 
-            //µÃµ½Æô¶¯ÉúĞ§µÄÅäÖÃÏî
+            //å¾—åˆ°å¯åŠ¨ç”Ÿæ•ˆçš„é…ç½®é¡¹
             //_startupConfig = SettingHelper.Get<StartupConfig>("startupsettings", env.EnvironmentName) ?? new StartupConfig();
         }
 
-        // ÔËĞĞÊ±µ÷ÓÃ´Ë·½·¨¡£Ê¹ÓÃ´Ë·½·¨ÏòÈİÆ÷Ìí¼Ó·şÎñ¡£
+        // è¿è¡Œæ—¶è°ƒç”¨æ­¤æ–¹æ³•ã€‚ä½¿ç”¨æ­¤æ–¹æ³•å‘å®¹å™¨æ·»åŠ æœåŠ¡ã€‚
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddCors(options =>
+            {
+                options.AddPolicy(_allowSpecificOrigins, builder => builder
+                    .AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    //.WithMethods("GET","POST","PUT","DELETE","OPTIONS")
+                );
+            });
+            // å¾—åˆ°ç¨‹åºå¯åŠ¨éœ€è¦çš„å‚æ•°é…ç½®
+            var _startupConfig = Configuration.GetSection("Startup").Get<StartupConfig>();
+            
+            // æ³¨å†Œç³»ç»Ÿé…ç½®åˆ°å®¹å™¨
+            services.Configure<SystemConfig>(Configuration.GetSection("System"));
+
+            // 
+
         }
 
-        // ÔËĞĞÊ±µ÷ÓÃ´Ë·½·¨¡£Ê¹ÓÃ´Ë·½·¨ÅäÖÃHTTPÇëÇó¹ÜµÀ¡£
+        // è¿è¡Œæ—¶è°ƒç”¨æ­¤æ–¹æ³•ã€‚ä½¿ç”¨æ­¤æ–¹æ³•é…ç½®HTTPè¯·æ±‚ç®¡é“ã€‚
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -42,8 +55,8 @@ namespace PortalAdmin.HttpApi
                 app.UseDeveloperExceptionPage();
             }
 
-            //ÆôÓÃswaggerÖĞ¼ä¼ş
-            //app.UseSwaggerMiddleware();
+            // å¯ç”¨swaggerä¸­é—´ä»¶
+            app.UseSwaggerMiddleware();
 
             app.UseHttpsRedirection();
 
@@ -51,10 +64,7 @@ namespace PortalAdmin.HttpApi
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }
