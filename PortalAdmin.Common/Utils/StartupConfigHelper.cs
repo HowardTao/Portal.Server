@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PortalAdmin.Common.Configs;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,6 +11,9 @@ namespace PortalAdmin.Common.Utils
     /// </summary>
     public static class StartupConfigHelper
     {
-        public static 
+        public static StartupConfig Get()
+        {
+            return Configuration
+        }
     }
 }
