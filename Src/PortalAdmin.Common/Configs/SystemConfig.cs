@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using PortalAdmin.Common.Extensions;
 
 namespace PortalAdmin.Common.Configs
 {
