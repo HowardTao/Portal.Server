@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortalAdmin.HttpApi", "Src\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortalAdmin.Common", "Src\PortalAdmin.Common\PortalAdmin.Common.csproj", "{16B84B59-513A-4A86-8642-56E236BF5E28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortalAdmin.MultiTenant", "Src\PortalAdmin.MultiTenant\PortalAdmin.MultiTenant.csproj", "{C1088670-ECB0-4B39-AB83-EF8235BEC457}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortalAdmin.Services", "Src\PortalAdmin.Services\PortalAdmin.Services.csproj", "{A1CF0263-39EF-4D9E-8194-D56294A6343C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{16B84B59-513A-4A86-8642-56E236BF5E28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16B84B59-513A-4A86-8642-56E236BF5E28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16B84B59-513A-4A86-8642-56E236BF5E28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1088670-ECB0-4B39-AB83-EF8235BEC457}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1088670-ECB0-4B39-AB83-EF8235BEC457}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1088670-ECB0-4B39-AB83-EF8235BEC457}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1088670-ECB0-4B39-AB83-EF8235BEC457}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1CF0263-39EF-4D9E-8194-D56294A6343C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1CF0263-39EF-4D9E-8194-D56294A6343C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1CF0263-39EF-4D9E-8194-D56294A6343C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1CF0263-39EF-4D9E-8194-D56294A6343C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

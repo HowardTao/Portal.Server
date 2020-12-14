@@ -1,4 +1,6 @@
 using System;
+using System.Text;
+using PortalAdmin.Common.Utils;
 
 namespace PortalAdmin.Common.Extensions
 {
@@ -45,7 +47,28 @@ namespace PortalAdmin.Common.Extensions
         {
             return s.Equals(value, StringComparison.OrdinalIgnoreCase);
         }
-        
-        
+
+        /// <summary>
+        /// 转为Base64
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="encoding">编码</param>
+        /// <returns></returns>
+        public static string ToBase64(this string s, Encoding encoding)
+        {
+            if (s.IsNull()) return String.Empty;
+            var bytes = encoding.GetBytes(s);
+            return bytes.ToBase64();
+        }
+
+        /// <summary>
+        /// 转换为路径
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ToPath(this string s)
+        {
+            return s.IsNull() ? string.Empty : s.Replace(@"\", "/");
+        }
     }
 }
